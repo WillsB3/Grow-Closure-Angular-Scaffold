@@ -13,7 +13,7 @@ module.exports = function(gulp) {
     ];
 
     gulp.src(appJs.concat(thirdPartyJs))
-      .pipe(debug({title: 'lint-js'}))
+      // .pipe(debug({title: 'lint-js'}))
       .pipe(gjslint())
       .pipe(gjslint.reporter('console'))
       .on('finish', callback);
