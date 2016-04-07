@@ -15,15 +15,18 @@ module.exports = function(gulp) {
 
     return gulp.src(jsFiles)
       .pipe(sort())
-      .pipe(debug({'title': 'compile-js'}))
+      // .pipe(debug({'title': 'compile-js'}))
       .pipe(closureCompiler({
         compilerPath: path.join(PATHS.NPM, 'google-closure-compiler', 'compiler.jar'),
         compilerFlags: {
+          'angular_pass': true,
+          'closure_entry_point': 'scaffold.module',
+          'compilation_level': 'ADVANCED_OPTIMIZATIONS',
           'externs': [
+            path.join(PATHS.NPM, 'google-closure-compiler', 'contrib',
+               'externs', 'angular-1.4.js'),
             path.join(PATHS.SRC.JS, 'externs', 'modernizr.js')
           ],
-          'closure_entry_point': 'scaffold',
-          'compilation_level': 'ADVANCED_OPTIMIZATIONS',
           'generate_exports': true,
           'manage_closure_dependencies': true,
           'only_closure_dependencies': true,

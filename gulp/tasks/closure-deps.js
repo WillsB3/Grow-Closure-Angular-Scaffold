@@ -8,7 +8,7 @@ var path = require('path');
 module.exports = function(gulp) {
   return function() {
     return gulp.src(PATHS.JS_SOURCES)
-      .pipe(debug({'title': 'closure-deps'}))
+      // .pipe(debug({'title': 'closure-deps'}))
       .pipe(closureDeps({
         fileName: 'deps.js',
         prefix: '../../../..',

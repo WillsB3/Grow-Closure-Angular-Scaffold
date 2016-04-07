@@ -1,10 +1,10 @@
 goog.provide('scaffold.app.AppController');
 
 /**
- * @ngInject
  * @constructor
+ * @param {!angular.$log} $log
+ * @ngInject
  */
-scaffold.app.AppController = function() {
-  /** @export */
-  this.greeting = 'Hello!';
+scaffold.app.AppController = function($log) {
+  $log.log('AppController constructor');
 };

@@ -24,13 +24,9 @@
     <script src="{{g.static('/dist/js/closure-library/closure/goog/base.js').url.path}}"></script>
     <script src="{{g.static('/dist/js/deps.js').url.path}}"></script>
     <script>
-      goog.require('scaffold');
+      goog.require('scaffold.module');
     </script>
   {% else %}
-    <script src="{{g.static('/dist/js/site.min.js').url.path}}"></script>
+    <script id="app-script" src="{{g.static('/dist/js/site.min.js').url.path}}"></script>
   {% endif %}
-
-  <script>
-    var page = new scaffold.init();
-  </script>
 </body>
